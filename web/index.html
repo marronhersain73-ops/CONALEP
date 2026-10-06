@@ -1,0 +1,31 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self'; img-src 'self' data: https://*.supabase.co; connect-src 'self' https://*.supabase.co wss://*.supabase.co; base-uri 'none'; form-action 'self'">
+<title>CONALEP Objetos Perdidos</title><meta name="theme-color" content="#000000">
+<link rel="manifest" href="manifest.json"><link rel="icon" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png"><link rel="stylesheet" href="style.css"></head><body>
+<main id="auth" hidden>
+ <img class="logo" src="icons/icon-192.png" alt=""><h1>Objetos Perdidos</h1><p class="mut">CONALEP</p>
+ <div class="tabs"><button data-tab="in" class="on">Entrar</button><button data-tab="up">Registrarme</button></div>
+ <form id="fin"><input name="email" type="email" placeholder="Correo" required autocomplete="email">
+  <input name="password" type="password" placeholder="Contraseña" required autocomplete="current-password"><button class="pri">Entrar</button></form>
+ <form id="fup" hidden><input name="nombre" placeholder="Nombre completo" minlength="3" maxlength="80" required>
+  <input name="matricula" placeholder="Matrícula" minlength="4" maxlength="20" pattern="[A-Za-z0-9\-]+" required>
+  <input name="carrera" placeholder="Carrera" maxlength="100" required>
+  <input name="telefono" type="tel" placeholder="Teléfono (opcional)" pattern="[0-9+() \-]{7,20}">
+  <input name="email" type="email" placeholder="Correo" required autocomplete="email">
+  <input name="password" type="password" placeholder="Contraseña (mín. 8)" minlength="8" required autocomplete="new-password"><button class="pri">Crear cuenta</button></form>
+</main>
+<div id="app" hidden>
+ <header><img class="mini" src="icons/icon-192.png" alt=""><b>Objetos Perdidos</b><button id="out">Salir</button></header>
+ <div class="bar"><input id="fq" type="search" placeholder="Buscar..."><select id="ftype"><option value="">Todos</option><option>Lo perdí</option><option>Lo encontré</option></select><select id="fcat"><option value="">Categoría</option></select></div>
+ <section id="list"></section><button id="add" class="fab" aria-label="Publicar">+</button>
+ <dialog id="dlg"><form id="fnew"><h2>Nueva publicación</h2>
+  <select name="type"><option>Lo perdí</option><option>Lo encontré</option></select><select name="category" id="ncat"></select>
+  <input name="title" placeholder="Título" minlength="2" maxlength="100" required><textarea name="description" placeholder="Descripción" maxlength="1000"></textarea>
+  <input name="location" placeholder="¿Dónde?" maxlength="120"><input name="tel" type="tel" placeholder="Teléfono de contacto (solo se muestra al pulsar Contactar)" pattern="[0-9+() \-]{7,20}">
+  <input name="file" type="file" accept="image/jpeg,image/png,image/webp">
+  <div class="row"><button type="button" id="cx">Cancelar</button><button class="pri">Publicar</button></div></form></dialog>
+</div><div id="toast" hidden></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="config.js"></script><script src="app.js"></script></body></html>
